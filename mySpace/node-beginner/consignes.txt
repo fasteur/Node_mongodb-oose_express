@@ -1,0 +1,50 @@
+considérant les répertoires fournis pour l'exercice, vous devez effacer les répertoires et les fichiers vides. Vous devez utiliser une fonction récursive pour parser les répertoires, et vous devez bien évidemment préserver le fichier index.js à la racine. 
+
+Level up : logger les entrées supprimées dans un fichier texte placé dans ./logs/{timestamp}.txt
+
+
+
+
+
+
+
+
+:::::FILE SYSTEM => fs::::
+
+****pour l'utiliser :***
+const fs = require('fs');
+
+La forme asynchrone prend toujours un call back comme dernier argument. 
+Les arguments transmis au call back dépendent de la méthode, mais le premier argument est toujours réservé à une exception. 
+Si l'opération s'est terminée avec succès, le premier argument sera nul ou non défini.
+-----stats------------------
+stats.isDirectory()#
+Added in: v0.1.10
+Returns: <boolean>
+Returns true if the fs.Stats object describes a file system directory.
+---------------------------------------------
+stats.isFile()#
+Added in: v0.1.10
+Returns: <boolean>
+Returns true if the fs.Stats object describes a regular file.
+--------------------------------------
+stats.size#
+<number> | <bigint>
+The size of the file in bytes.
+
+=================================================
+fs.readdirSync(path[, options])#
+History
+path <string> | <Buffer> | <URL>
+options <string> | <Object>
+
+encoding <string> Default: 'utf8'
+Returns: <string[]> An array of filenames excluding '.' and '..'.
+Synchronous readdir(3).
+
+The optional options argument can be a string specifying an encoding, or an object with an encoding property specifying the character encoding to use for the filenames returned. If the encoding is set to 'buffer', the filenames returned will be passed as Buffer objects.
+=============================================================
+fs.unlinkSync(path)#
+History
+path <string> | <Buffer> | <URL>
+Synchronous unlink(2). Returns undefined.

@@ -1,0 +1,5 @@
+db = connect('technocite')
+// let dbs = db.adminCommand('listDatabases')
+// printjson(dbs)
+db.movies.remove({})
+printjson(db.movies)

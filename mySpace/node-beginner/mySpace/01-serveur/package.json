@@ -1,0 +1,19 @@
+{
+  "name": "01-serveur",
+  "version": "1.0.0",
+  "description": "demo for HTTP server creating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Erro: no test specified\\\" && exit l"
+  },
+  "keywords": [
+    "[\"http\"",
+    "\"server\"",
+    "\"node\"]"
+  ],
+  "author": "\"Florian asteur\"",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.2.8"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Detail student</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  
+  <h1>Student detail</h1>
+
+  <p>{{DETAILS}}</p>
+
+  <button id="trigger-edit" data-id="{{ID}}">
+    Edit
+  </button>
+
+  <button id="trigger-delete" data-id="{{ID}}">
+    Delete
+  </button>
+
+  <button id="trigger-vote" data-id="{{ID}}">
+    Vote
+  </button>
+
+  <p>
+    <a href="/">Back to list</a>
+  </p>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      var $edit = $('#trigger-edit');
+      var $delete = $('#trigger-delete');
+      var $vote = $('#trigger-vote');
+
+      $delete.on('click', function(e) {
+        if(confirm('Are you sure ?') === true)
+        {
+          let id = $(this).data('id');
+          $.ajax({
+            url : 'http://localhost:8001/api/students/' + id,
+            method : 'DELETE',
+            success: function(response, status) {
+              if(parseInt(response.status) === 200)
+              {
+                window.location.href = '/';
+              } 
+              else
+              {
+                alert(response.message);
+              }
+            },
+            error: function(response, status, error) {
+              console.error(error);
+            }
+
+          });
+        }
+      });
+      
+      $edit.on('click', function(e) {
+        let id = $(this).data('id');
+        window.location.href = 'http://localhost:8001/api/students/edit/' + id;
+      });
+
+      $vote.on('click', function(e) {
+        let id = $(this).data('id');
+        $.ajax({
+          url : 'http://localhost:8001/api/students/vote/' + id,
+          method : 'POST',
+          success: function(response, status) {
+            if(parseInt(response.status) === 200)
+            {
+              console.log(response);
+              $('#ratings').text(String(response.payload.meta.votes));
+            } 
+            alert(response.message);
+          },
+          error: function(response, status, error) {
+            console.error(error);
+          }
+
+        });
+      });
+
+    });
+    
+  </script>
+
+</body>
+</html>
