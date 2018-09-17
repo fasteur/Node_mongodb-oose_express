@@ -43,3 +43,7 @@ let message;
     let endsWithC = (<string>message).endsWith('c'); 
     console.log(endsWithC);
     let alternative = (message as string).endsWith('c');
+let multiple : number | string; 
+multiple = 'Anissa'; 
+multiple = 123; 
+// multiple = true; 

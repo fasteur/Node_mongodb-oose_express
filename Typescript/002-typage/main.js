@@ -1,3 +1,4 @@
+"use strict";
 var chiffre;
 // chiffre = 'Anissa'; 
 var prenom;
@@ -42,3 +43,7 @@ message = 'abc';
 let endsWithC = message.endsWith('c');
 console.log(endsWithC);
 let alternative = message.endsWith('c');
+let multiple;
+multiple = 'Anissa';
+multiple = 123;
+// multiple = true; 

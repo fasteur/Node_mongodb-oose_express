@@ -1,3 +1,4 @@
+"use strict";
 // var machin = 123; 
 // machin = "Anissa"; 
 // machin = {}; 
@@ -5,5 +6,5 @@
 function troll(message) {
     console.log(message);
 }
-var msg = 'Hello';
+let msg = 'Hello';
 troll(msg);

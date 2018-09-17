@@ -49,25 +49,103 @@
 // // point.b = 2; 
 // point.draw()
 
+// class Point {
+//     // private x: number;
+//     public x: number;
+//     public y: number;
+//     // ici le ? défini que x est optionnel
+//     // constructor(x?: number, y?: number) {
+//     //     this.x = x;
+//     //     this.y = y;
+//     // }
+//     constructor(x: number, y: number) {
+//         this.x = x;
+//         this.y = y;
+//     }
+ 
+//     draw() {
+//         console.log('x : ' + this.x + ', y : ' + this.y);
+//     }
+ 
+//     getDistance(another: Point) {  //another necessité d'un second point pour clculer la distance
+//         //get distance
+//     }
+//  }
+ 
+//  let point = new Point(14, 56);
+//  //point.x=15;
+//  //point.y=84;
+//  point.draw();
+
+//  class Ligne extends Point { 
+//     z: number ;
+//      constructor(z: number, a?: number) {
+//         super(z, a );
+//      }
+//  }
+//  let 1 = new Ligne(1)
+
+//  l.draw()
+
+
+// //******************************* */
+// // ETAPE 4
+// //******************************* */
+
+// class Point {
+    
+//     constructor(private x: number,private y?: number) {
+//         this.x = x;
+//         this.y = y;
+//     }
+//     getX() {
+//         console.log(`x : ${this.x}`);
+//     }
+//     setX(value){
+//         // this.x = z
+//         // console.log(this.x);
+//         if (value < 0) 
+//             throw new Error ("la valeur ne peut pas être négative ")
+//         this.x = value; 
+//     }
+//     draw() {
+//         console.log('x : ' + this.x + ', y : ' + this.y);
+//     }
+ 
+//     getDistance(another: Point) {  //another necessité d'un second point pour clculer la distance
+//         //get distance
+//     }
+//  }
+//  let p = new Point(1,2)
+// // p.x = 3;  => x est protected donc on ne peut le modifier
+// // p.draw()
+// // p.getX()
+
+// p.setX(9); 
+
+//******************************* */
+// ETAPE 5
+//******************************* */
+
 class Point {
-    private x: number;
-    y: number;
-    // ici le ? défini que x est optionnel
-    constructor(x?: number, y: number) {
-        this.x = x;
-        this.y = y;
+    
+    constructor (private _x: number,private _y?: number) {}
+
+    get x() { // permet d'obtenir la valeur 
+        return this._x
     }
- 
+    set x(value){ //permet de modifier la valeur 
+        if (value < 0) 
+            throw new Error ("la valeur ne peut pas être négative ")
+        this._x = value; 
+    }
     draw() {
-        console.log('x : ' + this.x + ', y : ' + this.y);
+        console.log('x : ' + this._x + ', y : ' + this._y);
     }
- 
     getDistance(another: Point) {  //another necessité d'un second point pour clculer la distance
         //get distance
     }
  }
- 
- let point = new Point(14, 56);
- //point.x=15;
- //point.y=84;
- point.draw();
+ let p = new Point(1,2)
+console.log(p.x);
+p.x = 10; 
