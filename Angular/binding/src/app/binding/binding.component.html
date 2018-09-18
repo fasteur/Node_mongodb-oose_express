@@ -1,0 +1,16 @@
+<h2>{{ title }}</h2>
+<!-- <h2 [textContent]= 'title'></h2> -->
+<img [src]="imgUrl" />
+
+<table>
+  <tr>
+    <td [attr.colspan] = "colspan"></td>
+  </tr>
+</table>
+
+<button class='btn btn-primary' [class.active]= 'isActive'>Save</button>
+<button [style.backgroundColor]='isActive ? "blue" : "red" '>mon bouton</button>
+
+<div (click) ="doSomething()">
+  <button (click)="onClick($event)" >Cliquez-moi</button>
+</div>
