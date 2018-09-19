@@ -10,6 +10,7 @@ export class BindingComponent implements OnInit {
   imgUrl = 'https://placekitten.com/200/300';
   colspan = 2; 
   isActive = false;
+  email = 'asteur.florian@gmail.com'
   onClick($event) { 
     $event.stopPropagation(); //évite de propager l'event click sur la div
     console.log("On m'a cliqué");
@@ -17,6 +18,16 @@ export class BindingComponent implements OnInit {
   }
   doSomething(){
     console.log('la div a été cliqué');
+  }
+  // onKeyUp(emailValue) {
+  //   // if($event.keyCode == 13 ) 
+  //   console.log(emailValue);
+    
+  // }
+  onKeyUp() {
+    // if($event.keyCode == 13 ) 
+    console.log(this.email);
+    
   }
   constructor() { }
 

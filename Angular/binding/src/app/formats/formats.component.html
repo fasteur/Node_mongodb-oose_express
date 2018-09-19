@@ -1,0 +1,17 @@
+{{ cours.title | uppercase }} <br>
+{{ cours.students | number }} <br>
+{{ cours.rating | number : '1.2-2' }} <br>
+{{ cours.price | currency : 'EUR' }} <br>
+{{ cours.releaseDate | date : 'shortDate' }} <br>
+
+<p>
+  {{ text | summary : 100 }}
+</p>
+
+<span (click) ='onClick($event)' [class.active]='isActive' [class]='isActive ? "glyphicon glyphicon-star" : "glyphicon glyphicon-star-empty"'></span>
+<!-- <span class='glyphicon glyphicon-star-empty'></span> -->
+<span class='glyphicon'
+  [class.glyphicon-star]='isActive2'
+  [class.glyphicon-star-empty]='!isActive2'
+  (click) = "setFavorite($event)"
+></span>

@@ -14,3 +14,10 @@
 <div (click) ="doSomething()">
   <button (click)="onClick($event)" >Cliquez-moi</button>
 </div>
+<!-- <input #email (keyup.enter)="onKeyUp(email.value)" /> -->
+<!-- <input [value]= 'email' (keyup.enter)="email=$event.target.value; onKeyUp()" /> -->
+<input [(ngModel)]= "email" (keyup.enter)="onKeyUp()" />
+
+<p>
+  bonjour {{ email }}
+</p>
