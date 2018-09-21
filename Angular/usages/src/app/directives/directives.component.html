@@ -1,0 +1,84 @@
+
+
+<!-- <div *ngIf='courses.length > 0'>
+  <h2>Liste des courses</h2>
+</div>
+// s'il n'y a rien dans l'objet 'courses' alors il affiche cette div
+<div *ngIf="courses.length == 0">
+  <h2>Il n'y a rien sur la liste</h2>
+</div> -->
+
+<!-- meme chose mais version raccourcie -->
+
+<!-- <div *ngIf='courses.length > 0; else pasDeCourses'>
+  <h2>Liste des courses</h2>
+</div>
+<ng-template #pasDeCourses>
+  <h2>Il n'y a rien sur la liste</h2>
+</ng-template> -->
+
+<!-- meme chose mais version raccourcie -->
+
+<!-- <div *ngIf='courses.length > 0; then listeDeCourses else pasDeCourses'></div>
+
+<ng-template #listeDeCourses>
+  <h2>Liste des courses</h2>
+</ng-template>
+
+<ng-template #pasDeCourses>
+  <h2>Il n'y a rien sur la liste</h2>
+</ng-template> -->
+
+<!-- version avec hidden  -->
+
+<!-- <div [hidden]="courses.length == 0">
+  <h2>Liste des courses</h2>
+</div >
+
+<div [hidden]="courses.length > 0">
+  <h2>Il n'y a rien sur la liste</h2>
+</div > -->
+
+<!-- =============== -->
+
+<!-- <ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map' "><a (click)= "viewMode = 'map' ">map view</a></li>
+  <li [class.active]="viewMode == 'list' "><a (click)= "viewMode = 'list' ">list view</a></li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">map view content</div>
+  <div *ngSwitchCase="'list'">list view content</div>
+  <div *ngSwitchDefault>...</div>
+</div> -->
+<!-- BOUCLE FOR + index (inverse) -->
+<!-- <ul>
+  <li *ngFor="let product of products; index as i ">
+    {{ i }} - {{ product.name }}
+  </li>
+</ul> -->
+<!-- BOUCLE FOR + even (inverse)  impaire-->
+<!-- <ul>
+  <li *ngFor="let product of products; even as isEven ">
+     {{ product.name }} <span *ngIf="isEven"> -(EVEN) </span>
+  </li>
+</ul> -->
+
+<!-- <button (click)="addProduct()">Add</button>
+<ul>
+  <li *ngFor="let product of products; index as i " >
+    {{ product.id }} - {{ product.name }}
+    <button (click)="removeProduct(product)">Supprimer</button>
+    <button (click)="updateProduct(product)">update</button>
+  </li>
+</ul> -->
+
+<!-- <button (click)="loadProducts()">Load Products</button>
+
+<ul>
+  <li *ngFor="let product of products; trackBy: trackProducts" >
+    {{ product.name }}
+  </li>
+</ul> -->
+
+{{ tasks.assignee?.name }}
