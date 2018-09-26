@@ -1,0 +1,14 @@
+<section>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    
+    <mat-form-field>
+      <input type="text" matInput placeholder="user" name="user" ngModel >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="pasword" name="password" ngModel>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Submit</button>
+  </form>
+</section>
