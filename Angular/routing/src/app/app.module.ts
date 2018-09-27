@@ -8,7 +8,7 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
-import routes from './routes/routes';
+
 
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -19,6 +19,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Routes } from "@angular/router";
+import { LoggedInGuard } from "./logged-in.guard";
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AdminGuard } from './admin.guard';
+
+
+const routes: Routes = [
+  {path:'', redirectTo: 'home', pathMatch: 'full'},
+  {path:'home', component: HomeComponent},
+  {path:'about', component: AboutComponent},
+  {path:'products', component: ProductsComponent},
+  {path:'login', component: LoginComponent},
+  {path:'protected', canActivate: [LoggedInGuard], component: ProtectedComponent},
+  {path:'admin', canActivate: [LoggedInGuard, AdminGuard], component: AdmindashboardComponent},
+]
 
 @NgModule({
   declarations: [
@@ -28,7 +44,8 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ProductsComponent,
     ProtectedComponent,
-    LoginComponent
+    LoginComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +57,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]

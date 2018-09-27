@@ -1,42 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UsersService } from '../users.service';
+import User from '../interface/user';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
+export class LoginComponent implements OnInit {
+  loginForm : FormGroup
+  returnURL : string; 
+  constructor(fb:FormBuilder, 
+          private userService:UsersService,
+          private router: Router,
+          private route: ActivatedRoute) {
 
-  loginForm : FormGroup; 
-  constructor(fb : FormBuilder ) {
     this.loginForm = fb.group({
-      user: ['blabla', Validators.required], 
-      email: ['blabla@gmail.com', [Validators.required, Validators.email]],
-      password: ['blibli', [Validators.required, Validators.minLength(6)]],
+      username:['', Validators.required],
+      password : ['',[Validators.required, Validators.minLength(3)]]
     })
    }
-
   ngOnInit() {
+    // console.log(this.route.snapshot.queryParams);
+    this.returnURL = this.route.snapshot.queryParams['returnURL'] || '/'
   }
-  onSubmit(objValue) { 
-    console.log(this.loginForm.valid);
-    console.log(objValue);
-  }
-  getErrorMessage(formControlName : string): string {
-    const errors : any= {
-      required : "Le champs est requis",
-      minlength: "Le champs doit contenir 6 caractères",
-      email : "Ce champs doit contenir un email valid"
+  getValidationError(field:string):string{
+    const errors= {
+      required: "le champs est requis",
+      minlength:"le champs doit comporter au moins 3 caractères"
     }
-    return Object.keys(this.loginForm.controls[formControlName].errors).reduce(
-      (prev, current, currentIndex) => { 
-        console.log(prev);
-        console.log(current);
-        console.log(currentIndex);
-        return `${prev} Rule ${currentIndex} - ${errors[current]}`;
-      },''
-    )
-
+    return Object.keys(this.loginForm.controls[field].errors).reduce((prev,current)=>{
+      return `${prev} - ${errors[current]}`;
+    },'')
   }
 
+  onLogin(user:User){
+    
+     if(this.userService.authenticate(user)) {
+      
+       console.log(this.router.navigateByUrl(this.returnURL))
+
+       this.router.navigateByUrl(this.returnURL)
+     }
+  }
 }

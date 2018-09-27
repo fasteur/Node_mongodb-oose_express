@@ -16,7 +16,7 @@ export class PostsComponent implements OnInit {
 
   // constructor(private http: Http, postService : PostserviceService ) { 
   constructor( private postService : PostserviceService ) { 
-     console.log();
+    
   }  
   ngOnInit() : void { 
     this.postService.AffichPost().subscribe( response => { 

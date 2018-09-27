@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsersService } from './users.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoggedInGuard implements CanActivate {
-
-  isLoggedIn 
-  
+  constructor(private userService:UsersService, private router: Router){}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    console.log('Logged in guard');
    
-    if(this.isLoggedIn) { 
-      console.log('Ok you can pass');
-      return true
-    } else { 
-      console.log('No way for you');
-      return false;
-    }
+      if(this.userService.isLoggedIn()) {
+        return true; 
+      } else { 
+        this.router.navigate(['login'], {
+          queryParams :{ returnURL: state.url }
+        })
+        return false
+      }
   }
 }

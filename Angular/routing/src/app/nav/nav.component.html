@@ -2,5 +2,8 @@
   <a [routerLink]="['/home']" routerLinkActive="active">home</a> &nbsp; || &nbsp;
   <a [routerLink]="['/about']" routerLinkActive="active">about</a> &nbsp; || &nbsp;
   <a [routerLink]="['/products']" routerLinkActive="active">products</a> &nbsp; || &nbsp;
-  <a [routerLink]="['/login']" routerLinkActive="active">login</a> 
+  <a [routerLink]="['/protected']" routerLinkActive="active">protected</a> &nbsp; || &nbsp;
+  <a [routerLink]="['/admin']" routerLinkActive="active">admin</a> &nbsp; || &nbsp;
+  <a [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.usersService.isLoggedIn()">login</a> 
+  <a href="#" (click)='onLogout($event)' *ngIf="this.usersService.isLoggedIn()">logout</a> 
 </mat-toolbar>
