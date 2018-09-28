@@ -1,0 +1,10 @@
+<h2>Users List</h2>
+<mat-list>
+  <mat-list-item *ngFor="let user of users ">
+    {{ user.email }}
+  </mat-list-item>
+
+</mat-list>
+<section>
+  <a routerLink="/users/add"><button mat-raised-button>Add user</button></a>
+</section>

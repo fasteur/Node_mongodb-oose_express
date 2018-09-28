@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "es6-promisify": "^6.0.0",
-    "mongoose": "^5.2.8"
-  }
-}

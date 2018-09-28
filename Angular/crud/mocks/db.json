@@ -1,0 +1,22 @@
+{
+    "users":[
+        {
+            "id":1,
+            "email":"asteur.florian@gmail.com",
+            "street":"rue tienne de faux",
+            "number":2,
+            "zip":7000,
+            "town":"Denee",
+            "country":"Belgium"
+        },
+        {
+            "id":2,
+            "email":"florian@gmail.com",
+            "street":"rue maredret",
+            "number":4,
+            "zip":7000,
+            "town":"Anhee",
+            "country":"Belgium"
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+<mat-card>
+<section>
+  User Create form
+</section>
+<section>
+<form [formGroup]= "userForm">
+<!-- -------------------------------------- -->
+<section>
+  
+  <mat-form-field matInput placeholder="email" formControlName="email">
+    <mat-error *ngIf="userForm.controls.email.invalid">{{getErrorMessage('email')}}</mat-error>>
+  </mat-form-field>
+
+</section>
+<!-- -------------------------------------- -->
+<section>
+  
+  <mat-form-field matInput placeholder="street" formControlName="street">
+    <mat-error *ngIf="userForm.controls.street.invalid">{{getErrorMessage('street')}}</mat-error>>
+  </mat-form-field>
+
+</section>
+<!-- -------------------------------------- -->
+<section>
+  
+  <mat-form-field matInput placeholder="number" formControlName="number">
+    <mat-error *ngIf="userForm.controls.number.invalid">{{getErrorMessage('number')}}</mat-error>>
+  </mat-form-field>
+
+</section>
+<!-- --------------------------------------- -->
+<section>
+  
+  <mat-form-field matInput placeholder="zip" formControlName="zip">
+    <mat-error *ngIf="userForm.controls.zip.invalid">{{getErrorMessage('zip')}}</mat-error>>
+  </mat-form-field>
+
+</section>
+<!-- --------------------------------------- -->
+<section>
+  
+    <mat-form-field matInput placeholder="town" formControlName="town">
+      <mat-error *ngIf="userForm.controls.town.invalid">{{getErrorMessage('town')}}</mat-error>>
+    </mat-form-field>
+
+</section>
+<!-- ------------------------------------- -->
+<section>
+
+    <mat-form-field>
+      <mat-select placeholder="country" formControlName="country">
+      <mat-option *ngFor="let country of countryService.getCountries()" value="{{county}}">{{country}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="userForm.controls.country.invalid">{{getErrorMessage('country')}}</mat-error>
+    </mat-form-field>
+
+</section>
+<section>
+  <button  mat-raised-button color="primary" >Submit</button>
+</section>
+<!-- --------------------------------------- -->
+</form>
+</section>
+</mat-card>
